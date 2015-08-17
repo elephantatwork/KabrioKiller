@@ -100,6 +100,8 @@ public class VehicleMenu : MonoBehaviour
 		cam.Initialize();
 		vp = newVehicle.GetComponent<VehicleParent>();
 
+		cam.GetComponent<CameraControlls>().cameraTarget = newVehicle.transform;
+
 		trans = newVehicle.GetComponentInChildren<Transmission>();
 		if (trans)
 		{

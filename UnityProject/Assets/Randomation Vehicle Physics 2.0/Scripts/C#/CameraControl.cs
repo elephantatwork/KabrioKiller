@@ -106,6 +106,7 @@ public class CameraControl : MonoBehaviour
 			}
 
 			tr.rotation = Quaternion.LookRotation(forwardDir, lookObj.up);
+			tr.LookAt(lookObj);
 		}
 	}
 
