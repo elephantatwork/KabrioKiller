@@ -183,6 +183,9 @@ public class VehicleParent : MonoBehaviour
 			InheritInputOneShot();
 		}
 
+		if(controlled)
+			SetSteer(1.0F);
+
 		//Norm orientation visualizing
 		//Debug.DrawRay(norm.position, norm.forward, Color.blue);
 		//Debug.DrawRay(norm.position, norm.up, Color.green);
@@ -263,6 +266,8 @@ public class VehicleParent : MonoBehaviour
 	public void SetSteer(float f)
 	{
 		if(cardBoardHead != null && Cardboard.SDK.VRModeEnabled && controlled){
+
+			print ("haa");
 
 				float _direction = tr.InverseTransformDirection(cardBoardHead.forward).x;
 				steerInput = Mathf.Clamp(_direction*2.0F, -1.0F, 1.0F);

@@ -9,7 +9,7 @@ public class Waypoint : MonoBehaviour {
 	public void OnTriggerEnter (Collider _other) {
 
 		if(_other.tag == "Car")
-			EnterAction(_other.transform.parent.parent.parent.GetComponent<RaceStats>());
+			EnterAction(_other.transform.parent.GetComponent<RaceStats>());
 	}
 
 	public virtual void EnterAction(RaceStats _stats){

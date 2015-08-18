@@ -135,6 +135,8 @@ public class RaceManager : MonoBehaviour {
 		if(currentGameMode == gameMode.laps){
 			lapsCompleted[_playerID] ++;
 
+			GUIManager.instance.ShowMessage("Player " + _playerID + " completed " + lapsCompleted[_playerID] + " laps!");
+
 			if(lapsCompleted[_playerID] >= lapsGoal){
 				GameOver(_playerID);
 			}
@@ -145,5 +147,13 @@ public class RaceManager : MonoBehaviour {
 
 		GUIManager.instance.ShowMessage("Player " + _winnerID + " has won the game");
 
+		StartCoroutine(WaitForGameEnd());
+
+	}
+
+	private IEnumerator WaitForGameEnd(){
+		yield return new WaitForSeconds(5.0F);
+
+		Application.LoadLevel(0);
 	}
 }
