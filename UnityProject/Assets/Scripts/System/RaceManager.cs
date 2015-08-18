@@ -33,7 +33,7 @@ public class RaceManager : MonoBehaviour {
 	}
 
 	// Use this for initialization
-	void Start () {
+	public void InitiateGame () {
 
 		levelObject = GameObject.Find ("Level").transform;
 
@@ -56,7 +56,7 @@ public class RaceManager : MonoBehaviour {
 				vehicleWaypoints[i].nextPoint = vehicleWaypoints[0];
 			else
 				vehicleWaypoints[i].nextPoint = vehicleWaypoints[i+1];
-			
+
 		}
 		for(int iw = 0; iw < vehicleWaypoints.Length; iw++){
 
