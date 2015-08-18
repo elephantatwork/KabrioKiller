@@ -40,7 +40,7 @@ public class FollowAI : MonoBehaviour
 	public float stopTimeReverse = 1;
 
 	[Tooltip("Duration in seconds the vehicle will reverse after getting stuck")]
-	public float reverseAttemptTime = 1;
+	private float reverseAttemptTime = 3;
 
 	[Tooltip("How many times the vehicle will attempt reversing before resetting, -1 = no reset")]
 	public int resetReverseCount = 1;

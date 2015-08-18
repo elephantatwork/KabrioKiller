@@ -60,7 +60,7 @@ public class RaceManager : MonoBehaviour {
 		}
 		for(int iw = 0; iw < vehicleWaypoints.Length; iw++){
 
-			vehicleWaypoints[iw].Initialize();
+//			vehicleWaypoints[iw].Initialize();
 
 		}
 
@@ -81,7 +81,7 @@ public class RaceManager : MonoBehaviour {
 	public void SpawnPlayer(int _playerID){
 
 		GameObject _car = Instantiate(carPrefab) as GameObject;
-		RaceStats _carStats = _car.GetComponent<RaceStats>();
+		RaceStats _carStats = _car.AddComponent<RaceStats>();
 
 		_carStats.racerID = _playerID;
 		_carStats.currentWaypoint = waypoints[0];
@@ -90,9 +90,11 @@ public class RaceManager : MonoBehaviour {
 
 		_carStats.motorLink = _car.GetComponentInChildren<Motor>();
 
+
 		if(_playerID == 0){
 //			Camera.main.GetComponent<CameraControl>().target = _car.transform;
 //			Camera.main.GetComponent<CameraControl>().Initialize();
+			_car.GetComponent<VehicleParent>().controlled = true;
 
 			GameObject.Find ("CardboardMain").GetComponent<CameraControl>().target = _car.transform;
 			GameObject.Find ("CardboardMain").GetComponent<CameraControl>().Initialize();

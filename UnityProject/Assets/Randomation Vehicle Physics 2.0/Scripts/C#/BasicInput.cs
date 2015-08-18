@@ -57,7 +57,7 @@ public class BasicInput : MonoBehaviour
 
 		if (!string.IsNullOrEmpty(steerAxis))
 		{
-			vp.SetSteer(Input.GetAxis(steerAxis));
+//			vp.SetSteer(Input.GetAxis(steerAxis));
 		}
 
 		if (!string.IsNullOrEmpty(ebrakeAxis))

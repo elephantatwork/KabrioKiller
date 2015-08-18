@@ -6,13 +6,14 @@ public class VehicleWaypoint : MonoBehaviour
 {
 	public VehicleWaypoint nextPoint;
 	public float radius = 10;
+	public AnimationCurve speedMutliplicator = AnimationCurve.EaseInOut(0, 0, 1, 1);
 
 	[Tooltip("Percentage of a vehicle's max speed to drive at")]
 	[RangeAttribute(0, 1)]
 	public float speed = 1;
 
 	public void Initialize(){
-		speed = SetSpeed();
+//		speed = SetSpeed();
 	}
 
 	void OnDrawGizmos()
@@ -32,7 +33,8 @@ public class VehicleWaypoint : MonoBehaviour
 	private float SetSpeed(){
 
 		float _angle = Vector3.Angle(this.transform.position, nextPoint.transform.position);
-
-		return _angle /180.0F;
+		float _calc = Mathf.Clamp01(1.0F - (_angle /90.0F));
+		print (_angle);
+		return speedMutliplicator.Evaluate(_calc);
 	}
 }

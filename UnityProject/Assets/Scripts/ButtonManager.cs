@@ -27,6 +27,6 @@ public class ButtonManager : MonoBehaviour {
 
 	public void DrivingControl(float _value){
 
-//		RaceManager.instance.allCars[0].GetComponent<VehicleParent>().SetSteer(_value);
+		RaceManager.instance.allCars[0].GetComponent<VehicleParent>().SetSteer(_value);
 	}
 }
