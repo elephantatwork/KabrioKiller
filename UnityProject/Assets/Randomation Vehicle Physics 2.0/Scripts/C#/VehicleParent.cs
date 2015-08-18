@@ -183,7 +183,7 @@ public class VehicleParent : MonoBehaviour
 			InheritInputOneShot();
 		}
 
-		if(controlled)
+		if(controlled && Cardboard.SDK.VRModeEnabled )
 			SetSteer(1.0F);
 
 		//Norm orientation visualizing
