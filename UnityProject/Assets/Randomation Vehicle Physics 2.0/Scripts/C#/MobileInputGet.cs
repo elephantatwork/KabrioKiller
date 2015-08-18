@@ -27,11 +27,11 @@ public class MobileInputGet : MonoBehaviour
 		{
 			accelerationDelta = Input.acceleration - accelerationPrev;
 			accelerationPrev = Input.acceleration;
-			vp.SetAccel(setter.accel);
-			vp.SetBrake(setter.brake);
+//			vp.SetAccel(setter.accel);
+//			vp.SetBrake(setter.brake);
 			vp.SetSteer((Input.acceleration.x + accelerationDelta.x * deltaFactor) * steerFactor);
-			vp.SetEbrake(setter.ebrake);
-			vp.SetBoost(setter.boost);
+//			vp.SetEbrake(setter.ebrake);
+//			vp.SetBoost(setter.boost);
 			vp.SetYaw(Input.acceleration.x * flipFactor);
 			vp.SetPitch(-Input.acceleration.z * flipFactor);
 		}

@@ -98,6 +98,11 @@ public class RaceManager : MonoBehaviour {
 
 			GameObject.Find ("CardboardMain").GetComponent<CameraControl>().target = _car.transform;
 			GameObject.Find ("CardboardMain").GetComponent<CameraControl>().Initialize();
+
+//			if(Cardboard.SDK.VRModeEnabled == true){
+				_car.AddComponent<MobileInputGet>();
+//			}
+
 		}else{
 			_car.AddComponent<FollowAI>().target = vehicleWaypoints[0].transform;
 		}
