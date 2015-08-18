@@ -60,7 +60,7 @@ public class CameraControl : MonoBehaviour
 
 		//Set the audio listener update mode to fixed, because the camera moves in FixedUpdate
 		//This is necessary for doppler effects to sound correct
-		GetComponent<AudioListener>().velocityUpdateMode = AudioVelocityUpdateMode.Fixed;
+//		GetComponent<AudioListener>().velocityUpdateMode = AudioVelocityUpdateMode.Fixed;
 	}
 
 	void FixedUpdate()

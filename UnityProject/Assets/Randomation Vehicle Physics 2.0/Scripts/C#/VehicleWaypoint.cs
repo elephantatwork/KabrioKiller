@@ -11,6 +11,10 @@ public class VehicleWaypoint : MonoBehaviour
 	[RangeAttribute(0, 1)]
 	public float speed = 1;
 
+	public void Initialize(){
+		speed = SetSpeed();
+	}
+
 	void OnDrawGizmos()
 	{
 		//Visualize waypoint
@@ -23,5 +27,12 @@ public class VehicleWaypoint : MonoBehaviour
 			Gizmos.color = Color.magenta;
 			Gizmos.DrawLine(transform.position, nextPoint.transform.position);
 		}
+	}
+
+	private float SetSpeed(){
+
+		float _angle = Vector3.Angle(this.transform.position, nextPoint.transform.position);
+
+		return _angle /180.0F;
 	}
 }

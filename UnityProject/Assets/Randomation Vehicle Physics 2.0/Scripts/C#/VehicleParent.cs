@@ -119,6 +119,8 @@ public class VehicleParent : MonoBehaviour
 	public float cameraDistanceChange;
 	public float cameraHeightChange;
 
+	public Transform cardBoardHead;
+
 	void Start()
 	{
 		tr = transform;
@@ -145,6 +147,8 @@ public class VehicleParent : MonoBehaviour
 		{
 			sparks.transform.parent = null;
 		}
+
+		cardBoardHead = GameObject.Find("Head").transform;
 	}
 
 	void Update()
@@ -242,8 +246,9 @@ public class VehicleParent : MonoBehaviour
 
 	public void SetAccel(float f)
 	{
-		f = Mathf.Clamp(f, -1 , 1);
-		accelInput = f;
+//		f = Mathf.Clamp(f, -1 , 1);
+
+		accelInput = 1.0F;//f;
 	}
 
 	public void SetBrake(float f)
@@ -253,7 +258,14 @@ public class VehicleParent : MonoBehaviour
 
 	public void SetSteer(float f)
 	{
-		steerInput = Mathf.Clamp(f, -1 , 1);
+		if(Cardboard.SDK.VRModeEnabled){
+
+			float _direction = tr.InverseTransformDirection(cardBoardHead.forward).x;
+			steerInput = Mathf.Clamp(_direction*2.0F, -1.0F, 1.0F);
+
+		}else{
+			steerInput = Mathf.Clamp(f, -1 , 1);
+		}
 	}
 
 	public void SetEbrake(float f)

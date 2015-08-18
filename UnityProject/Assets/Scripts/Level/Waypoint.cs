@@ -20,6 +20,10 @@ public class Waypoint : MonoBehaviour {
 				_stats.lastWaypoint = _stats.currentWaypoint;
 				_stats.currentWaypoint = nextWaypoint;
 
+				_stats.waypointScore ++;
+
+				RaceManager.instance.RecalculateRankings();
+
 			}
 		}else{
 			Debug.LogWarning("No RaceStats!");
