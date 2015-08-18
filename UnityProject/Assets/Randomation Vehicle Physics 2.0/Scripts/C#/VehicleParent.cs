@@ -249,8 +249,10 @@ public class VehicleParent : MonoBehaviour
 	public void SetAccel(float f)
 	{
 //		f = Mathf.Clamp(f, -1 , 1);
-
-		accelInput = 1.0F;//f;
+		if(controlled)
+			accelInput = 0.5F;//f;
+		else
+			accelInput = f;
 	}
 
 	public void SetBrake(float f)

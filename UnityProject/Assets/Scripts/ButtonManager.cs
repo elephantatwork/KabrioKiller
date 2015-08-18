@@ -21,10 +21,14 @@ public class ButtonManager : MonoBehaviour {
 		
 		nonVRUI.SetActive(!_vr);
 
+		GameObject.Find("CardboardMain").GetComponent<Cardboard>().enabled = false;
+
 		preGameChoice.SetActive(false);
 	}
 
 	public void ToggleVR(){
+
+		GameObject.Find("CardboardMain").GetComponent<Cardboard>().enabled = false;
 
 		Cardboard.SDK.VRModeEnabled = !Cardboard.SDK.VRModeEnabled;
 
